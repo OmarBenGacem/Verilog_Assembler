@@ -1,0 +1,1 @@
+// In this context, a number refers to any binary number. All numbers are stored as binary numbers, but simply expressed as 

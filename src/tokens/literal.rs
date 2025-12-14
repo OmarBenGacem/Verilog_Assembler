@@ -42,3 +42,4 @@ pub fn lex_decimal(lex: &mut Lexer<Token>) -> Literal {
         value: rest[1..].to_string(), // drop the 'd'
     }
 }
+ 
