@@ -2,6 +2,7 @@ use logos::Logos;
 use crate::tokens::literal::{lex_binary, lex_hex, lex_decimal, Literal};
 use crate::tokens::keywords::{lex_keyword, Keyword};
 use crate::tokens::operators::{lex_operator, Operator};
+use crate::tokens::labels::{lex_label, lex_bit_range, Label, BitRange};
 
 #[derive(Logos, Debug)]
 pub enum Token {
@@ -17,8 +18,17 @@ pub enum Token {
     #[regex(r"(assign|module|endmodule)", lex_keyword)]
     Keyword(Keyword),
 
-    #[regex(r"(=|<=|\+|-|\*|\^|<<|>>)", lex_operator)]
+    #[regex(r"(==|=|<=|\+|-|\*|\^|<<|>>)", lex_operator)]
     Operator(Operator),
+
+    
+    #[regex(r"[a-zA-Z_][a-zA-Z0-9_]*",lex_label )]
+    Label(Label),
+
+
+    // #[regex( r"\[(?<upper>[0-9]+):(?<lower>[0-9]+)\]", lex_bit_range)]
+    #[ regex(r"\[([0-9]+):([0-9]+)\]",lex_bit_range) ]
+    BitRange(BitRange),
 
 
     #[regex(r"[ \t\n\r]+", logos::skip)]

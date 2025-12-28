@@ -3,9 +3,9 @@ use crate::lexer::Token;  // or wherever your Token enum lives
 
 #[derive(Debug)]
 pub enum Operator {
-    Equal_block  { name: String, symbol: String },
+    Assign_block  { name: String, symbol: String },
     Equal_test { name: String, symbol: String },
-    Equal_nblock { name: String, symbol: String },
+    Assign_nblock { name: String, symbol: String },
     Plus         { name: String, symbol: String },
     Minus        { name: String, symbol: String },
     Multiply     { name: String, symbol: String },
@@ -19,9 +19,9 @@ pub fn lex_operator(lex: &mut Lexer<Token>) -> Operator {
 
     match lex.slice() {
 
-        "="   => Operator::Equal_block   { name: "equal".to_string(), symbol: "=".to_string() },
         "=="  => Operator::Equal_test    { name: "equal_test".to_string(), symbol: "==".to_string() },
-        "<="  => Operator::Equal_nblock  { name: "non-blocking equal".to_string(), symbol: "<=" .to_string()},
+        "="   => Operator::Assign_block   { name: "assign".to_string(), symbol: "=".to_string() },
+        "<="  => Operator::Assign_nblock  { name: "non-blocking asssign".to_string(), symbol: "<=" .to_string()},
         "+"   => Operator::Plus          { name: "plus".to_string(), symbol: "+".to_string() },
         "-"   => Operator::Minus         { name: "minus".to_string(), symbol: "-".to_string() },
         "*"   => Operator::Multiply      { name: "multiply".to_string(), symbol: "*".to_string() },
