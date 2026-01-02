@@ -7,7 +7,6 @@ module lite_v1
         input      [9:0] d2,
         output reg [7:0] res
     );
-
     
 
     always @(posedge clk) begin

@@ -15,7 +15,7 @@ pub enum Token {
     #[regex(r"(?i)\d+'d[0-9xz]+", lex_decimal)]
     Literal(Literal),
 
-    #[regex(r"(assign|module|endmodule)", lex_keyword)]
+    #[regex(r"assign|module|endmodule|if|else|begin|end|default|case|endcase|input|output|reg|wire|always|posedge|negedge|;|:|@|\(|\)", lex_keyword)]
     Keyword(Keyword),
 
     #[regex(r"(==|=|<=|\+|-|\*|\^|<<|>>)", lex_operator)]

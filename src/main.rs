@@ -13,7 +13,7 @@
 mod lexer;
 mod tokens;
 use std::fs;
-
+#[allow(dead_code)]
 fn main() {
     // Define the path to the file
     let file_path = "src/test.v";
