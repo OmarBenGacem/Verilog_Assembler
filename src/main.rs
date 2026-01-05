@@ -1,6 +1,6 @@
 // mod lexer;
+// mod datatypes;
 // mod tokens;
-
 // fn main() {
 //     let text = " module assign x == 8'b10101010;\n      [10:9]          assign y <= 3'hA;\n                assign z = 5'd17; endmodule";
 //     let tokens = lexer::lex(text);
@@ -11,10 +11,15 @@
 
 
 mod lexer;
+mod datatypes;
 mod tokens;
 use std::fs;
+use crate::datatypes::number::Number;
 #[allow(dead_code)]
 fn main() {
+
+    let test : Number = Number{label: "test".to_string(), width: 2, value: 3};
+    
     // Define the path to the file
     let file_path = "src/test.v";
 

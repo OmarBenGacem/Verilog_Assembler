@@ -4,6 +4,9 @@ use crate::tokens::keywords::{lex_keyword, Keyword};
 use crate::tokens::operators::{lex_operator, Operator};
 use crate::tokens::labels::{lex_label, lex_bit_range, Label, BitRange};
 
+use crate::datatypes::number::Number;
+
+
 #[derive(Logos, Debug)]
 pub enum Token {
 
@@ -13,7 +16,7 @@ pub enum Token {
     #[regex(r"(?i)\d+'b[01xz]+", lex_binary)]
     #[regex(r"(?i)\d+'h[0-9a-fxz]+", lex_hex)]
     #[regex(r"(?i)\d+'d[0-9xz]+", lex_decimal)]
-    Literal(Literal),
+    Number(Number),
 
     #[regex(r"assign|module|endmodule|if|else|begin|end|default|case|endcase|input|output|reg|wire|always|posedge|negedge|;|:|@|\(|\)", lex_keyword)]
     Keyword(Keyword),

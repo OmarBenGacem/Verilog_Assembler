@@ -28,8 +28,7 @@ pub fn lex_label(lex: &mut Lexer<Token>) -> Label {
 }
 
 pub fn lex_bit_range( lex: &mut Lexer<Token> ) -> BitRange {
-    // 1. Remove the brackets '[' and ']'
-    // 2. Split the string by ':'
+
     let slice = lex.slice();
     let parts: Vec<&str> = slice
         .trim_matches(|c| c == '[' || c == ']')

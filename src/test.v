@@ -7,6 +7,8 @@ module lite_v1
         input      [9:0] d2,
         output reg [7:0] res
     );
+
+    assign [7:0] unknown_constant = 8'b00010101;
     
 
     always @(posedge clk) begin
